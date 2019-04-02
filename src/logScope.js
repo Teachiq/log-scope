@@ -1,10 +1,14 @@
+const settings = {
+  print: true,
+  store: true,
+  onError: null
+}
 const startTime = +(new Date())
 let onlyScope = null
 
-export default (importingServiceName) => {
+const logScope = (importingServiceName) => {
   let log = {
     serviceName: importingServiceName,
-    print: true,
     setup: {
       debug: {
         color: 'blue', logToConsole: true
@@ -42,7 +46,7 @@ export default (importingServiceName) => {
   // Functionality
   log.logToConsole = (type, message, ...data) => {
     if (!log.active[type] ||
-      !log.print) {
+      !settings.print) {
       return
     }
 
@@ -85,6 +89,10 @@ export default (importingServiceName) => {
   log.getTime = () => (+(new Date()) - startTime) / 1000
 
   log.storeToHistory = (type, message) => {
+    if (!settings.store) {
+      return
+    }
+
     // See if the previous history is the same as log message
     const LAST_ITEM_INDEX = log.history[type].length - 1
 
@@ -117,18 +125,42 @@ export default (importingServiceName) => {
   }
 
   log.latest = () => {
+    const history = log.read('sequence', 10)
+
+    if (history === '') {
+      return
+    }
+
     // eslint-disable-next-line
-    console.log(log.read('sequence', 10));
+    console.log(history);
   }
 
   // Custom logs
-  log.error = (message) => {
+  log.error = (message, err, ...data) => {
     // eslint-disable-next-line
     console.trace(`⚠️ ERROR: (${log.count['error']})`, message);
 
+    // Build error
+    if (!err) {
+      err = new Error(message)
+    } else if (typeof err === 'string') {
+      err = new Error(err)
+    }
+
+    // Emit error
+    if (settings.onError) {
+      settings.onError(err)
+    }
+
+    // Log ev. additional data
+    if (data) {
+      console.log(err, ...data)
+    } else {
+      console.log(err)
+    }
+
     // Log sequences
     log.latest()
-
     log.storeToHistory('error', message)
   }
 
@@ -158,13 +190,27 @@ export default (importingServiceName) => {
       log.history[type] = []
       log.count[type] = 0
 
-      // Create methods
-      log[type] = (message, ...data) => {
-        log.logToConsole(type, message, ...data)
-        log.storeToHistory(type, message)
+      // Create methods (error has a custom one)
+      if (type !== 'error') {
+        log[type] = (message, ...data) => {
+          log.logToConsole(type, message, ...data)
+          log.storeToHistory(type, message)
+        }
       }
     })
   })()
 
   return log
 }
+
+const init = (config = {}) => {
+  Object.entries(settings).forEach(([key]) => {
+    if (config[key] !== undefined) {
+      settings[key] = config[key]
+    }
+  })
+}
+
+export { logScope, init }
+
+export default logScope
