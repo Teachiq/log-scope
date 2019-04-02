@@ -1,6 +1,7 @@
 const settings = {
   print: true,
   store: true,
+  counter: true,
   onError: null
 }
 const startTime = +(new Date())
@@ -56,10 +57,10 @@ const logScope = (importingServiceName) => {
     }
 
     const color = log.setup[type].color
-    const count = log.count[type]
+    const count = settings.counter ? ` (${log.count[type]})` : ''
 
     // eslint-disable-next-line
-    console.log(`%c ${log.serviceName} [${type.toUpperCase()}] (${count}): ${message}`, `color: ${color}`);
+    console.log(`%c ${log.serviceName} [${type.toUpperCase()}]${count}: ${message}`, `color: ${color}`);
 
     if (data) {
       // eslint-disable-next-line
