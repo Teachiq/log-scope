@@ -1,9 +1,39 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const libraryName = 'scope-log'
+let outputFile = `${libraryName}.js`
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    app: './src/index.js'
+  },
+  devtool: 'source-map',
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
-  }
+    filename: outputFile,
+    path: path.resolve(__dirname, 'lib'),
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true
+  },
+  devServer: {
+    contentBase: './lib',
+    // index: outputFile,
+    hot: true
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: true
+      })
+    ]
+  },
+  module: {
+    rules: [{
+        test: /\.js/,
+        exclude: /(node_modules)/,
+        use: [{
+            loader: 'babel-loader'
+        }]
+    }]
+},
 };
