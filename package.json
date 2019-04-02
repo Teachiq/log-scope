@@ -1,6 +1,6 @@
 {
   "name": "log-scope",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Scoped javascript logging",
   "author": "Mattias Naarttijärvi",
   "license": "MIT",
@@ -18,7 +18,13 @@
     "watch": "jest --watch --config test/unit/jest.conf.js",
     "prod": "npm run lint && npm run test && npm run build"
   },
-  "keywords": ["log", "scope", "javascript", "color", "console"],
+  "keywords": [
+    "log",
+    "scope",
+    "javascript",
+    "color",
+    "console"
+  ],
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
