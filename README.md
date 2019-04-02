@@ -2,7 +2,7 @@
 ## Installation
 ```npm install log-scope```
 
-## Get levels from IPs (IPv4)
+## Create new log scope
 ```js
 import logScope from 'log-scope'
 const log = logScope('scopeName')
