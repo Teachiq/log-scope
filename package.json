@@ -1,13 +1,14 @@
 {
-  "name": "scope-log",
+  "name": "log-scope",
   "version": "0.0.1",
   "description": "Scoped javascript logging",
   "author": "Mattias Naarttijärvi",
+  "license": "MIT",
   "private": false,
-  "main": "lib/scope-log.js",
-  "module": "lib/scope-log.js",
+  "main": "lib/log-scope.js",
+  "module": "lib/log-scope.js",
   "files": [
-    "lib/scope-log.js"
+    "lib/log-scope.js"
   ],
   "scripts": {
     "build": "webpack --mode=production",

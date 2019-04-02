@@ -1,5 +1,5 @@
 import './util/polyfill.js'
-import scopeLog from './scopeLog.js'
+import logScope from './logScope.js'
 
 // Library export
-export default scopeLog
+export default logScope

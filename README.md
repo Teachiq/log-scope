@@ -1,11 +1,11 @@
 # Usage
 ## Installation
-```npm install scope-log```
+```npm install log-scope```
 
 ## Get levels from IPs (IPv4)
 ```js
-import scopeLog from 'scope-log'
-const log = scopeLog('scopeName')
+import logScope from 'log-scope'
+const log = logScope('scopeName')
 
 log.todo('Remember this')
 ```
@@ -13,7 +13,7 @@ log.todo('Remember this')
 # Developement
 - ```npm install```
 - ```npm run dev```
-- Go to localhost:8080/scope-log
+- Go to localhost:8080/log-scope
 
 # Production
 Run lint, tests and builds for production

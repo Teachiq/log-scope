@@ -1,6 +1,6 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const libraryName = 'scope-log'
+const libraryName = 'log-scope'
 let outputFile = `${libraryName}.js`
 
 module.exports = {
