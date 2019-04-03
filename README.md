@@ -93,6 +93,14 @@ init({
   onError: onErrorCallback
 })
 ```
+If you're using [bugsnag](https://www.bugsnag.com/) (or other error tracker), use the error callback to send the error-log.
+```js
+init({
+  onError: err => {
+    bugsnagClient.notify(err)
+  }
+})
+```
 
 # Developement
 - ```npm install```
