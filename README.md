@@ -82,7 +82,9 @@ log.resume(type)
 import logScope, { init } from 'log-scope'
 // OR: import { init } from 'log-scope'
 
-const onErrorCallback = err => {
+const onErrorCallback = (err, args) => {
+  // args = { message, data }
+
   ... // do something
 }
 

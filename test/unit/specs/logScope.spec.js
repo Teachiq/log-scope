@@ -75,6 +75,24 @@ test('Callback on error', () => {
   expect(onErrorCallback).toHaveBeenCalled()
 })
 
+test('Callback error include message', () => {
+  const message = 'the message'
+  const onErrorCallback = jest.fn()
+  const log = logScope('Test')
+  const err = new Error('the error')
+  const data = 'the data'
+
+  init({
+    onError: onErrorCallback
+  })
+
+  log.error(message, err, data)
+  expect(onErrorCallback).toHaveBeenCalledWith(err, {
+    message,
+    data: [data]
+  })
+})
+
 test('Print only from one selected scope', () => {
   const logA = logScope('A')
   const logB = logScope('B')

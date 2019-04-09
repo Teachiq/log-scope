@@ -150,7 +150,8 @@ const logScope = (importingServiceName) => {
 
     // Emit error
     if (settings.onError) {
-      settings.onError(err)
+      const callbackData = data ? { message, data } : { message }
+      settings.onError(err, callbackData)
     }
 
     // Log ev. additional data
