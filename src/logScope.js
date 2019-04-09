@@ -142,10 +142,12 @@ const logScope = (importingServiceName) => {
     console.trace(`⚠️ ERROR: (${log.count['error']})`, message);
 
     // Build error
-    if (!err) {
+    if (err && !(err instanceof Error)) {
+      data = [...data, err]
+    }
+
+    if (!err || !(err instanceof Error)) {
       err = new Error(message)
-    } else if (typeof err === 'string') {
-      err = new Error(err)
     }
 
     // Emit error

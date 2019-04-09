@@ -73,6 +73,7 @@ test('Callback on error', () => {
   expect(onErrorCallback).not.toHaveBeenCalled()
   log.error('Test')
   expect(onErrorCallback).toHaveBeenCalled()
+  expect(onErrorCallback).toHaveBeenCalledWith(new Error('Test'), {message: 'Test', data: []})
 })
 
 test('Callback error include message', () => {
@@ -87,6 +88,26 @@ test('Callback error include message', () => {
   })
 
   log.error(message, err, data)
+
+  expect(onErrorCallback).toHaveBeenCalledWith(err, {
+    message,
+    data: [data]
+  })
+})
+
+test('Callback error include message even if err is not passed in', () => {
+  const message = 'the message'
+  const onErrorCallback = jest.fn()
+  const log = logScope('Test')
+  const err = new Error(message)
+  const data = 'the data'
+
+  init({
+    onError: onErrorCallback
+  })
+
+  log.error(message, data)
+
   expect(onErrorCallback).toHaveBeenCalledWith(err, {
     message,
     data: [data]
