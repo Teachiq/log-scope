@@ -75,6 +75,9 @@ log.only()
 const type = 'debug' // Or any other type
 log.pause(type)
 log.resume(type)
+
+// Pause all logs for the log scope (i.e. don't pass type input)
+log.pause()
 ```
 
 ## Initialize log scope
