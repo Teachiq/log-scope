@@ -114,6 +114,32 @@ test('Callback error include message even if err is not passed in', () => {
   })
 })
 
+test('Pause all logs', () => {
+  const log = logScope('pauseScope')
+
+  log.pause()
+
+  expect(console.log).toHaveBeenCalledTimes(0)
+  log.debug('debug')
+  expect(console.log).toHaveBeenCalledTimes(0)
+  log.success('success')
+  expect(console.log).toHaveBeenCalledTimes(0)
+  log.danger('danger')
+  expect(console.log).toHaveBeenCalledTimes(0)
+})
+
+test('Pause specific log type', () => {
+  const log = logScope('pauseScope')
+
+  log.pause('debug')
+
+  expect(console.log).toHaveBeenCalledTimes(0)
+  log.debug('debug')
+  expect(console.log).toHaveBeenCalledTimes(0)
+  log.success('success')
+  expect(console.log).not.toHaveBeenCalledTimes(0)
+})
+
 test('Print only from one selected scope', () => {
   const logA = logScope('A')
   const logB = logScope('B')

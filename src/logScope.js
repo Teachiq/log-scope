@@ -68,7 +68,15 @@ const logScope = (importingServiceName) => {
     }
   }
 
-  log.pause = (type) => {
+  log.pause = (type = null) => {
+    if (type === null) {
+      Object.keys(log.active)
+        .forEach(logType => {
+          log.active[logType] = false
+        })
+      return
+    }
+
     log.active[type] = false
   }
 
