@@ -147,7 +147,7 @@ const logScope = (importingServiceName) => {
   // Custom logs
   log.error = (message, err, ...data) => {
     // eslint-disable-next-line
-    console.trace(`⚠️ ERROR: (${log.count['error']})`, message);
+    console.trace(`%c ${log.serviceName} [ERROR]: (${log.count['error']})`, 'color: red', message);
 
     // Build error
     if (err && !(err instanceof Error)) {

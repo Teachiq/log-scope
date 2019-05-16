@@ -20,7 +20,8 @@
     "test": "jest --config test/unit/jest.conf.js",
     "lint": "eslint --ext .js src test/unit",
     "watch": "jest --watch --config test/unit/jest.conf.js",
-    "prod": "npm run lint && npm run test && npm run build"
+    "prod": "npm run lint && npm run test && npm run build",
+    "patch": "npm run prod && npm version patch && npm publish"
   },
   "keywords": [
     "log",
