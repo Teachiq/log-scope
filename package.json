@@ -1,6 +1,6 @@
 {
   "name": "log-scope",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Scoped javascript logging",
   "author": "Mattias Naarttijärvi",
   "license": "MIT",
