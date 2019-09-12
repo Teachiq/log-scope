@@ -22,10 +22,10 @@ test('Create a log scope', () => {
   const log = logScope('test')
 
   log.debug('first')
-  expect(console.log).toHaveBeenCalledWith('%c test [DEBUG] (0): first', 'color: blue')
+  expect(console.log).toHaveBeenCalledWith('%c test [DEBUG] (0): first', 'color: #0093B4')
 
   log.debug('second')
-  expect(console.log).toHaveBeenCalledWith('%c test [DEBUG] (1): second', 'color: blue')
+  expect(console.log).toHaveBeenCalledWith('%c test [DEBUG] (1): second', 'color: #0093B4')
 })
 
 test('Dont print sequence', () => {

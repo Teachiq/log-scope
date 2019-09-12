@@ -12,13 +12,13 @@ const logScope = (importingServiceName) => {
     serviceName: importingServiceName,
     setup: {
       debug: {
-        color: 'blue', logToConsole: true
+        color: '#0093B4', logToConsole: true
       },
       warning: {
         color: 'orange', logToConsole: true
       },
       info: {
-        color: 'blue', logToConsole: true
+        color: '#0093B4', logToConsole: true
       },
       todo: {
         color: 'purple', logToConsole: true
