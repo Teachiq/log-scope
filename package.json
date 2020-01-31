@@ -4,6 +4,9 @@
   "description": "Scoped javascript logging",
   "author": "Mattias Naarttijärvi",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "private": false,
   "repository": {
     "type": "git",
