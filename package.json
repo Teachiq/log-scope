@@ -1,6 +1,6 @@
 {
   "name": "@naartti/log-scope",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Scoped & colorful console logging",
   "author": "Mattias Naarttijärvi",
   "license": "MIT",
