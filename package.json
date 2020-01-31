@@ -1,16 +1,13 @@
 {
-  "name": "@naartti/log-scope",
-  "version": "1.0.3",
+  "name": "log-scope",
+  "version": "1.0.6",
   "description": "Scoped & colorful console logging",
   "author": "Mattias Naarttijärvi",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/Naartti/log-scope.git"
+    "url": "https://github.com/Naartti/log-scope.git"
   },
   "bugs": {
     "url": "https://github.com/Naartti/log-scope/issues"
@@ -22,7 +19,6 @@
     "lib/log-scope.js"
   ],
   "scripts": {
-    "postpublish": "npm publish --ignore-scripts --@naartti:registry='https://registry.npmjs.org'",
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server",
     "test": "jest --config test/unit/jest.conf.js",
