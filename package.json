@@ -10,14 +10,19 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Naartti/log-scope.git"
+    "url": "git://github.com/Naartti/log-scope.git"
   },
+  "bugs": {
+    "url": "https://github.com/Naartti/log-scope/issues"
+  },
+  "homepage": "https://github.com/Naartti/log-scope#readme",
   "main": "lib/log-scope.js",
   "module": "lib/log-scope.js",
   "files": [
     "lib/log-scope.js"
   ],
   "scripts": {
+    "postpublish": "npm publish --ignore-scripts --@naartti:registry='https://registry.npmjs.org'",
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server",
     "test": "jest --config test/unit/jest.conf.js",
