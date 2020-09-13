@@ -13,10 +13,10 @@
     "url": "https://github.com/Naartti/log-scope/issues"
   },
   "homepage": "https://github.com/Naartti/log-scope#readme",
-  "main": "lib/log-scope.js",
-  "module": "lib/log-scope.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "files": [
-    "lib/log-scope.js"
+    "lib/index.js"
   ],
   "keywords": [
     "log",

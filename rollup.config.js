@@ -10,12 +10,17 @@ const packageName = require('./package.json').name
 
 export default {
   input: 'src/wrapper/index.ts',
-  output: {
+  output: [{
     name: packageName,
-    dir: 'lib',
+    file: 'lib/index.cjs.js',
     format: 'cjs',
     exports: 'named',
-  },
+  }, {
+    name: packageName,
+    file: 'lib/index.js',
+    format: 'esm',
+    exports: 'named',
+  }],
   plugins: [
     typescript({
       tsconfig: resolvedConfig => ({
