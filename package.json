@@ -1,6 +1,6 @@
 {
   "name": "log-scope",
-  "version": "1.0.6",
+  "version": "1.0.7-beta.0",
   "description": "Scoped & colorful console logging",
   "author": "Mattias Naarttijärvi",
   "license": "MIT",
