@@ -1,6 +1,3 @@
-/build/
-/config/
-/dist/
-/lib/
-/*.js
-/test/unit/coverage/
+dist/
+.eslintrc.js
+lib/
