@@ -106,14 +106,3 @@ init({
   }
 })
 ```
-
-# Developement
-- ```npm install```
-- ```npm run dev```
-- Go to localhost:8080/log-scope
-
-# Production
-Run lint, tests and builds for production
-```bash
-npm run prod
-```
